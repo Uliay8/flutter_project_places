@@ -33,6 +33,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+.metadata
 
 # Flutter/Dart/Mobile build output
 app.*.symbols.zip
@@ -43,6 +44,9 @@ app-release.apk
 app-release.aab
 app-release.ipa
 /ios/Flutter/App.framework
+/ios/Flutter/flutter.framework
+/macos/Flutter/App.framework
+/macos/Flutter/flutter.framework
 /ios/Flutter/engine.version
 /ios/Flutter/flutter_assets/
 /ios/Flutter/vm_snapshot_data
@@ -60,12 +64,34 @@ app-release.ipa
 /ios/Pods/
 /ios/Podfile.lock
 /ios/.symlinks/
+/ios/Frameworks/
+/ios/build/
+/ios/DerivedData/
 /ios/Flutter/Generated.xcconfig
 /ios/Flutter/flutter_export_environment.sh
 
 # Web
 /web/build/
 /web/.dart_tool/
+
+# macOS Specific
+/macos/Pods/
+/macos/.symlinks/
+/macos/Frameworks/
+/macos/build/
+/macos/DerivedData/
+/macos/Flutter
+
+# Linux Specific
+/linux/build/
+/linux/Flutter/
+
+# Windows Specific
+/windows/build/
+/windows/flutter/
+
+# Исключаем все файлы .env, содержащие секреты
+*.env
 
 # Windows
 # Various Visual Studio files
