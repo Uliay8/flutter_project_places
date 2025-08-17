@@ -84,7 +84,7 @@ app-release.ipa
 
 # Linux Specific
 /linux/build/
-/linux/Flutter/
+/linux/flutter/
 
 # Windows Specific
 /windows/build/
@@ -105,9 +105,9 @@ app-release.ipa
 *.visualstate
 
 # Rider
-.idea.idea.surf_places.dir/
-.idea.idea.surf_places.dir/.idea/
-.idea.idea.surf_places.dir/.idea/workspace.xml
+.idea.idea.flutter_project_places.dir/
+.idea.idea.flutter_project_places.dir/.idea/
+.idea.idea.flutter_project_places.dir/.idea/workspace.xml
 *.sln.iml
 /ExportedObj/
 .vsconfig
