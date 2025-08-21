@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_places/models/place.dart';
+import 'package:flutter_project_places/uikit/themes/colors/app_color_theme.dart';
+import 'package:flutter_project_places/uikit/themes/text/app_text_theme.dart';
 
 enum PlaceCardType { place, favorite }
 
@@ -22,10 +24,13 @@ class PlaceCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorTheme = AppColorTheme.of(context);
+    final textTheme = AppTextTheme.of(context);
+
     return SizedBox(
       height: _cardHeight,
       child: Material(
-        color: Colors.white,
+        color: colorTheme.surface,
         borderRadius: BorderRadius.all(Radius.circular(12)),
         clipBehavior: Clip.antiAlias,
         child: Stack(
@@ -43,7 +48,7 @@ class PlaceCardWidget extends StatelessWidget {
                         place.images.first,
                         fit: BoxFit.cover,
                         errorBuilder: (_, __, ___) => Container(
-                          color: Colors.grey.shade300,
+                          color: colorTheme.inactive,
                         ),
                       ),
                     ),
@@ -53,9 +58,7 @@ class PlaceCardWidget extends StatelessWidget {
                       right: 12,
                       child: Text(
                         place.type.toLowerCase(),
-                        style: Theme.of(
-                          context,
-                        ).textTheme.labelSmall?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                        style: textTheme.smallBold.copyWith(color: colorTheme.neutralWhite),
                       ),
                     ),
                   ],
@@ -77,9 +80,7 @@ class PlaceCardWidget extends StatelessWidget {
                       const SizedBox(height: 2),
                       Text(
                         place.description,
-                        style: Theme.of(
-                          context,
-                        ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
+                        style: textTheme.small.copyWith(color: colorTheme.textSecondaryVariant),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -102,7 +103,7 @@ class PlaceCardWidget extends StatelessWidget {
                 onTap: onLikeTap,
                 child: Icon(
                   Icons.favorite_border,
-                  color: Colors.white,
+                  color: colorTheme.neutralWhite,
                 ),
               ),
             ),

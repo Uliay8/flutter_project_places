@@ -26,6 +26,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final Color background;
   final Color divider;
   final Color error;
+  final Color favorite;
   final Color icon;
   final Color inactive;
   final Color inactiveVariant;
@@ -45,6 +46,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     required this.surface,
     required this.accent,
     required this.error,
+    required this.favorite,
     required this.inactive,
     required this.inactiveVariant,
     required this.secondary,
@@ -65,6 +67,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       surface = AppColors.colorBlackDark,
       accent = AppColors.colorBlackGreen,
       error = AppColors.colorBlackError,
+      favorite = AppColors.colorBlackError,
       inactive = AppColors.colorInactiveBlack,
       inactiveVariant = AppColors.colorBlackDark,
       secondary = AppColors.colorSecondary,
@@ -84,6 +87,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       surface = AppColors.colorBackground,
       accent = AppColors.colorWhiteGreen,
       error = AppColors.colorWhiteError,
+      favorite = AppColors.colorWhiteError,
       inactive = AppColors.colorInactiveBlack,
       inactiveVariant = AppColors.colorBackground,
       secondary = AppColors.colorSecondary,
@@ -103,6 +107,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     Color? surface,
     Color? accent,
     Color? error,
+    Color? favorite,
     Color? inactive,
     Color? inactiveVariant,
     Color? secondary,
@@ -121,6 +126,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       surface: surface ?? this.surface,
       accent: accent ?? this.accent,
       error: error ?? this.error,
+      favorite: favorite ?? this.favorite,
       inactive: inactive ?? this.inactive,
       inactiveVariant: inactiveVariant ?? this.inactiveVariant,
       secondary: secondary ?? this.secondary,
@@ -147,6 +153,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       surface: Color.lerp(surface, other.surface, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       error: Color.lerp(error, other.error, t)!,
+      favorite: Color.lerp(favorite, other.favorite, t)!,
       inactive: Color.lerp(inactive, other.inactive, t)!,
       inactiveVariant: Color.lerp(inactiveVariant, other.inactiveVariant, t)!,
       secondary: Color.lerp(secondary, other.secondary, t)!,

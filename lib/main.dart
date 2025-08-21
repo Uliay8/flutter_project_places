@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_places/models/place.dart';
-import 'package:flutter_project_places/screens/place_detail_screen.dart';
-import 'package:flutter_project_places/screens/places_screen.dart';
+import 'package:flutter_project_places/features/place_detail/ui/screens/place_detail_screen.dart';
+import 'package:flutter_project_places/features/places/ui/screens/places_screen.dart';
 import 'package:flutter_project_places/uikit/themes/app_theme_data.dart';
 
 final mockplaces = [
@@ -69,8 +69,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final screen = PlacesScreen(places: mockplaces);
-    final screen = PlaceDetailScreen(place: mockplaces.first, isFavorite: false);
+    final screen = PlacesScreen(places: mockplaces);
+    // final screen = PlaceDetailScreen(place: mockplaces.first, isFavorite: false);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

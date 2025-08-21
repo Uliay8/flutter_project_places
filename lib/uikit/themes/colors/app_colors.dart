@@ -19,6 +19,7 @@ abstract class AppColors {
   static const colorWhiteYellow = Color(0xffFCDD3D);
   static const colorWhiteYellow2 = Color(0xffB8CC45); // сплэш экран градиент
   static const colorWhiteError = Color(0xffEF4343);
+  static const colorWhiteFavorite = Color(0xffEF4343);
   static const colorWhiteMain = Color(0xff252849);
 
   static const colorBlackGreen = Color(0xff6ADA6F);
@@ -26,6 +27,7 @@ abstract class AppColors {
   static const colorBlackYellow = Color(0xffFFE769);
   static const colorBlackYellow2 = Color(0xffBBCD45); // сплэш экран градиент
   static const colorBlackError = Color(0xffCF2A2A);
+  static const colorBlackFavorite = Color(0xffCF2A2A);
   static const colorBlackDark = Color(0xff1A1A20);
   static const colorBlackMain = Color(0xff21222C);
 }
