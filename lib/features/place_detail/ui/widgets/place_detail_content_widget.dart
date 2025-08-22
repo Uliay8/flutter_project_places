@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_places/models/place.dart';
+import 'package:flutter_project_places/features/common/models/place.dart';
 import 'package:flutter_project_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:flutter_project_places/uikit/themes/text/app_text_theme.dart';
 

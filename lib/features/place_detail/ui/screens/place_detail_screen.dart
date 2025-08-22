@@ -1,47 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_places/assets/strings/app_strings.dart';
-import 'package:flutter_project_places/models/place.dart';
+import 'package:flutter_project_places/features/common/domain/repositories/i_favorites_repository.dart';
+import 'package:flutter_project_places/features/common/models/place.dart';
+import 'package:flutter_project_places/features/place_detail/ui/screens/place_detail_wm.dart';
 import 'package:flutter_project_places/uikit/buttons/main_button.dart';
 import 'package:flutter_project_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:flutter_project_places/uikit/themes/text/app_text_theme.dart';
 import 'package:flutter_project_places/features/place_detail/ui/widgets/heart_animation_widget.dart';
 import 'package:flutter_project_places/features/place_detail/ui/widgets/place_detail_content_widget.dart';
 import 'package:flutter_project_places/features/place_detail/ui/widgets/place_detail_photo_slider_widget.dart';
+import 'package:provider/provider.dart';
 
-class PlaceDetailScreen extends StatefulWidget {
+class PlaceDetailScreen extends StatelessWidget {
+  final IPlaceDetailWM wm;
   final Place place;
-  final bool isFavorite;
 
   const PlaceDetailScreen({
+    required this.wm,
     required this.place,
-    required this.isFavorite,
     super.key,
   });
-
-  @override
-  State<PlaceDetailScreen> createState() => _PlaceDetailScreenState();
-}
-
-class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
-  late bool _isFavorite;
-  final _heartAnimationKey = GlobalKey<HeartAnimationWidgetState>();
-
-  @override
-  void initState() {
-    super.initState();
-    _isFavorite = widget.isFavorite;
-  }
-
-  void _handleLike() {
-    final newFavoriteState = !_isFavorite;
-
-    if (newFavoriteState) {
-      _heartAnimationKey.currentState?.animate();
-    }
-    setState(() {
-      _isFavorite = newFavoriteState;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,13 +34,18 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
               SliverAppBar(
                 automaticallyImplyLeading: false,
                 expandedHeight: 360,
-                flexibleSpace: PlaceDetailPhotoSliderWidget(images: widget.place.images, onBackPressed: () {}),
+                flexibleSpace: PlaceDetailPhotoSliderWidget(
+                  images: place.images,
+                  onBackPressed: () {
+                    wm.onBackPressed(context);
+                  },
+                ),
               ),
               SliverList(
                 delegate: SliverChildListDelegate([
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: PlaceDetailContentWidget(place: widget.place),
+                    child: PlaceDetailContentWidget(place: place),
                   ),
                   const SizedBox(height: 24),
                   Padding(
@@ -87,31 +70,35 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  const Divider(
-                    indent: 16,
-                    endIndent: 16,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  const SizedBox(height: 24),
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      TextButton.icon(
-                        onPressed: _handleLike,
-                        icon: Icon(
-                          _isFavorite ? Icons.favorite : Icons.favorite_border,
-                          color: _isFavorite ? colorTheme.favorite : colorTheme.textSecondary,
-                        ),
-                        label: Text(
-                          _isFavorite
-                              ? AppStrings.placeDetailsInFavoritesButton
-                              : AppStrings.placeDetailsFavoritesButton,
-                          style: textTheme.text.copyWith(color: colorTheme.textSecondary),
-                        ),
+                      Builder(
+                        builder: (context) {
+                          final favoritesRepository = context.read<IFavoritesRepository>();
+                          return ValueListenableBuilder(
+                            valueListenable: favoritesRepository.favoritesListenable,
+                            builder: (context, favorites, _) {
+                              final isFavorite = favorites.any((f) => f.name == place.name);
+                              return TextButton.icon(
+                                onPressed: wm.onLikePressed,
+                                icon: Icon(
+                                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                                  color: isFavorite ? colorTheme.favorite : colorTheme.textSecondary,
+                                ),
+                                label: Text(
+                                  isFavorite
+                                      ? AppStrings.placeDetailsInFavoritesButton
+                                      : AppStrings.placeDetailsFavoritesButton,
+                                  style: textTheme.text.copyWith(color: colorTheme.textSecondary),
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -120,9 +107,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
               ),
             ],
           ),
-          HeartAnimationWidget(
-            key: _heartAnimationKey,
-          ),
+          HeartAnimationWidget(key: wm.heartAnimationKey),
         ],
       ),
     );
