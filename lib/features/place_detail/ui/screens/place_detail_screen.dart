@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_places/assets/strings/app_strings.dart';
+import 'package:flutter_project_places/features/common/domain/entities/place_entity.dart';
 import 'package:flutter_project_places/features/common/domain/repositories/i_favorites_repository.dart';
-import 'package:flutter_project_places/features/common/models/place.dart';
 import 'package:flutter_project_places/features/place_detail/ui/screens/place_detail_wm.dart';
 import 'package:flutter_project_places/uikit/buttons/main_button.dart';
 import 'package:flutter_project_places/uikit/themes/colors/app_color_theme.dart';
@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
   final IPlaceDetailWM wm;
-  final Place place;
+  final PlaceEntity place;
 
   const PlaceDetailScreen({
     required this.wm,
@@ -37,7 +37,7 @@ class PlaceDetailScreen extends StatelessWidget {
                 flexibleSpace: PlaceDetailPhotoSliderWidget(
                   images: place.images,
                   onBackPressed: () {
-                    wm.onBackPressed(context);
+                    Navigator.of(context).pop();
                   },
                 ),
               ),

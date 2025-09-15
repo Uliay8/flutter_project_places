@@ -13,7 +13,7 @@ dependencies:
   dio: 5.8.0+1 #для работы с сетью
   drift: 2.27.0 #для работы с бд
   drift_flutter: 0.2.4
-  # equatable: ^2.0.5
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_svg: 2.2.0
@@ -22,7 +22,7 @@ dependencies:
   path: 1.9.1 #для работы с внутренним хранилищем
   path_provider: 2.1.5
   provider: 6.1.5 #для передачи зависимостей
-  # retrofit: ^4.6.0
+  retrofit: ^4.6.0
   rxdart: 0.28.0 #СЛОЖНЫЙ ПОИСК
   shared_preferences: ^2.5.3 #хранилище данных (темы)
   sqlite3_flutter_libs: 0.5.34 #чтоб правильно работал дрифт
@@ -35,7 +35,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0 #было тут
   # freezed: ^2.4.1
   json_serializable: ^6.9.5
-  # retrofit_generator: ^9.6.0
+  retrofit_generator: ^9.6.0
   # surf_dcm_presets: 1.0.0
   # surf_lint_rules: 4.0.0
 

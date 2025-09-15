@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_project_places/features/common/models/place.dart';
+import 'package:flutter_project_places/features/common/domain/entities/place_entity.dart';
 
 abstract interface class IFavoritesRepository {
   /// [ValueListenable] с локальным набором избранных карточек.
-  ValueListenable<List<Place>> get favoritesListenable;
+  ValueListenable<List<PlaceEntity>> get favoritesListenable;
 
   /// Получение избранных мест.
   Future<void> fetchFavorites();
@@ -12,11 +12,11 @@ abstract interface class IFavoritesRepository {
   void dispose();
 
   /// Переключение статуса избранного места.
-  void toggleFavorite(Place place);
+  void toggleFavorite(PlaceEntity place);
 
   /// Удалить избранное место.
-  void removeFavorite(Place place);
+  void removeFavorite(PlaceEntity place);
 
   /// Проверить, является ли место избранным.
-  bool isFavorite(Place place);
+  bool isFavorite(PlaceEntity place);
 }

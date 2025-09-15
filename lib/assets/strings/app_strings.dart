@@ -28,7 +28,7 @@ abstract class AppStrings {
 
   /// Загрузка, ошибки
   static const placesLoading = 'Загрузка';
-  static const placesError = 'Что-то пошло не так.\\n Ошибка: ';
+  static const placesError = 'Что-то пошло не так.\n Ошибка: ';
   static const noPhoto = 'Нет фото';
 
   /// Заглушки

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_places/features/common/models/place.dart';
+import 'package:flutter_project_places/features/common/domain/entities/place_entity.dart';
 import 'package:flutter_project_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:flutter_project_places/uikit/themes/text/app_text_theme.dart';
 
 class PlaceDetailContentWidget extends StatelessWidget {
-  final Place place;
+  final PlaceEntity place;
   const PlaceDetailContentWidget({required this.place, super.key});
 
   @override
@@ -22,7 +22,7 @@ class PlaceDetailContentWidget extends StatelessWidget {
         ),
         const SizedBox(height: 2),
         Text(
-          place.type.toLowerCase(),
+          place.placeType.name.toLowerCase(),
           style: textTheme.smallBold.copyWith(color: colorTheme.textSecondary),
         ),
         const SizedBox(height: 24),

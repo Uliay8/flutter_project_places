@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_project_places/features/common/domain/entities/place_entity.dart';
 import 'package:flutter_project_places/features/common/domain/repositories/i_favorites_repository.dart';
-import 'package:flutter_project_places/features/common/models/place.dart';
 
 final class FavoritesRepository implements IFavoritesRepository {
-  final _favoritesListenable = ValueNotifier<List<Place>>([]);
+  final _favoritesListenable = ValueNotifier<List<PlaceEntity>>([]);
 
   FavoritesRepository();
 
@@ -13,7 +13,7 @@ final class FavoritesRepository implements IFavoritesRepository {
   }
 
   @override
-  ValueListenable<List<Place>> get favoritesListenable => _favoritesListenable;
+  ValueListenable<List<PlaceEntity>> get favoritesListenable => _favoritesListenable;
 
   @override
   Future<void> fetchFavorites() async {
@@ -21,20 +21,20 @@ final class FavoritesRepository implements IFavoritesRepository {
   }
 
   @override
-  bool isFavorite(Place place) {
+  bool isFavorite(PlaceEntity place) {
     final favorites = _favoritesListenable.value;
     return favorites.any((element) => element.name == place.name);
   }
 
   @override
-  void removeFavorite(Place place) {
+  void removeFavorite(PlaceEntity place) {
     final favorites = _favoritesListenable.value;
     final newFavorites = favorites.where((element) => element.name != place.name).toList();
     _favoritesListenable.value = newFavorites;
   }
 
   @override
-  void toggleFavorite(Place place) {
+  void toggleFavorite(PlaceEntity place) {
     final favorites = _favoritesListenable.value;
     final index = favorites.indexWhere((element) => element.name == place.name);
 

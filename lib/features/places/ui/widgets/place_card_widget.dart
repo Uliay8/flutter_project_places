@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_places/features/common/models/place.dart';
+import 'package:flutter_project_places/assets/strings/app_strings.dart';
+import 'package:flutter_project_places/features/common/domain/entities/place_entity.dart';
 import 'package:flutter_project_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:flutter_project_places/uikit/themes/text/app_text_theme.dart';
 
 enum PlaceCardType { place, favorite }
 
 class PlaceCardWidget extends StatelessWidget {
-  final Place place;
+  final PlaceEntity place;
   final VoidCallback onCardTap;
   final VoidCallback onLikeTap;
   final PlaceCardType cardType;
@@ -47,10 +48,10 @@ class PlaceCardWidget extends StatelessWidget {
                       width: double.infinity,
                       height: _imageHeight,
                       child: Image.network(
-                        place.images.first,
+                        place.images.firstWhere((_) => true, orElse: () => ''),
                         fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(
-                          color: colorTheme.inactive,
+                        errorBuilder: (_, __, ___) => Center(
+                          child: Text(AppStrings.noPhoto),
                         ),
                       ),
                     ),
@@ -59,7 +60,7 @@ class PlaceCardWidget extends StatelessWidget {
                       top: 16,
                       right: 12,
                       child: Text(
-                        place.type.toLowerCase(),
+                        place.placeType.name.toLowerCase(),
                         style: textTheme.smallBold.copyWith(color: colorTheme.neutralWhite),
                       ),
                     ),

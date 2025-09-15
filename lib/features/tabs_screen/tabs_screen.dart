@@ -16,8 +16,8 @@ class _TabsScreenState extends State<TabsScreen> {
 
   late final List<Widget> _pages = [
     const PlacesScreenBuilder(),
-    const Center(child: Text("Заглушка-избранное")),
-    const Center(child: Text("Заглушка-настройки")),
+    const Center(child: Text(AppStrings.favoritesStub)),
+    const Center(child: Text(AppStrings.settingsStub)),
   ];
 
   void _onTabTapped(int index) {
