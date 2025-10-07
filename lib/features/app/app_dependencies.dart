@@ -12,7 +12,7 @@ abstract class AppDependencies {
     final dio = Dio();
 
     dio.options
-      ..baseUrl = 'http://10.0.2.2:8080'
+      ..baseUrl = 'http://localhost:8080'
       ..connectTimeout = timeout
       ..receiveTimeout = timeout
       ..sendTimeout = timeout;

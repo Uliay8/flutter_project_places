@@ -31,7 +31,6 @@ class PlacesModel implements IPlacesModel {
     _favoritesRepository.favoritesListenable.addListener(_onFavoritesChanged);
   }
 
-  // final _placesState = ValueNotifier<List<Place>>(_mockPlaces);
   final _placesState = ValueNotifier<PlacesState>(const PlacesStateLoading());
   List<PlaceEntity>? _cachedRemotePlaces;
 
@@ -68,7 +67,6 @@ class PlacesModel implements IPlacesModel {
 
   @override
   Future<void> getPlaces() async {
-    // _placesState.value = _mockPlaces;
     _placesState.value = const PlacesStateLoading();
     final placesResult = await _placesRepository.getPlaces();
     switch (placesResult) {

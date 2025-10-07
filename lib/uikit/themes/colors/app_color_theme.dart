@@ -39,6 +39,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final Color textPrimary;
   final Color textSecondary;
   final Color textSecondaryVariant;
+  final Color splashStart;
+  final Color splashEnd;
 
   const AppColorTheme._({
     required this.scaffold,
@@ -58,6 +60,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     required this.textSecondary,
     required this.textSecondaryVariant,
     required this.textInactive,
+    required this.splashStart,
+    required this.splashEnd,
   });
 
   /// Base dark theme version.
@@ -78,7 +82,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       textPrimary = AppColors.colorWhite,
       textSecondary = AppColors.colorWhite,
       textSecondaryVariant = AppColors.colorSecondary2,
-      textInactive = AppColors.colorInactiveBlack;
+      textInactive = AppColors.colorInactiveBlack,
+      splashStart = AppColors.colorBlackYellow2,
+      splashEnd = AppColors.colorBlackGreen2;
 
   /// Base light theme version.
   const AppColorTheme.light()
@@ -98,7 +104,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       textPrimary = AppColors.colorWhiteMain,
       textSecondary = AppColors.colorSecondary,
       textSecondaryVariant = AppColors.colorSecondary2,
-      textInactive = AppColors.colorInactiveBlack;
+      textInactive = AppColors.colorInactiveBlack,
+      splashStart = AppColors.colorWhiteYellow2,
+      splashEnd = AppColors.colorBlackYellow2;
 
   @override
   ThemeExtension<AppColorTheme> copyWith({
@@ -119,6 +127,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     Color? textSecondary,
     Color? textSecondaryVariant,
     Color? textInactive,
+    Color? splashStart,
+    Color? splashEnd,
   }) {
     return AppColorTheme._(
       scaffold: scaffold ?? this.scaffold,
@@ -138,6 +148,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       textSecondary: textSecondary ?? this.textSecondary,
       textSecondaryVariant: textSecondaryVariant ?? this.textSecondaryVariant,
       textInactive: textInactive ?? this.textInactive,
+      splashStart: splashStart ?? this.splashStart,
+      splashEnd: splashEnd ?? this.splashEnd,
     );
   }
 
@@ -165,6 +177,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
       textSecondaryVariant: Color.lerp(textSecondaryVariant, other.textSecondaryVariant, t)!,
       textInactive: Color.lerp(textInactive, other.textInactive, t)!,
+      splashStart: Color.lerp(splashStart, other.splashStart, t)!,
+      splashEnd: Color.lerp(splashEnd, other.splashEnd, t)!,
     );
   }
 }
