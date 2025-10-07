@@ -1,0 +1,11 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - lib/**/*.g.dart
+    - lib/assets/images/**
+    - lib/assets/strings/**
+
+formatter:
+  page_width: 120
+  trailing_commas: preserve

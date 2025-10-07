@@ -1,0 +1,155 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+.packages
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+.metadata
+
+# Flutter/Dart/Mobile build output
+app.*.symbols.zip
+app-debug.apk
+app-debug.aab
+app-debug.ipa
+app-release.apk
+app-release.aab
+app-release.ipa
+/ios/Flutter/App.framework
+/ios/Flutter/flutter.framework
+/macos/Flutter/App.framework
+/macos/Flutter/flutter.framework
+/ios/Flutter/engine.version
+/ios/Flutter/flutter_assets/
+/ios/Flutter/vm_snapshot_data
+/ios/Flutter/isolate_snapshot_data
+
+# Gradles
+.gradle/
+/android/local.properties
+/android/key.properties
+/android/.gradle
+/android/app/build
+/android/build
+
+# Cocoapods
+/ios/Pods/
+/ios/Podfile.lock
+/ios/.symlinks/
+/ios/Frameworks/
+/ios/build/
+/ios/DerivedData/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+
+# Web
+/web/build/
+/web/.dart_tool/
+
+# macOS Specific
+/macos/Pods/
+/macos/.symlinks/
+/macos/Frameworks/
+/macos/build/
+/macos/DerivedData/
+/macos/Flutter
+
+# Linux Specific
+/linux/build/
+/linux/flutter/
+
+# Windows Specific
+/windows/build/
+/windows/flutter/
+
+# Исключаем все файлы .env, содержащие секреты
+*.env
+
+# Windows
+# Various Visual Studio files
+.vs/
+*.pdb
+*.pdb.meta
+*.sln.docstates
+*.suo
+*.user
+*.userprefs
+*.visualstate
+
+# Rider
+.idea.idea.flutter_project_places.dir/
+.idea.idea.flutter_project_places.dir/.idea/
+.idea.idea.flutter_project_places.dir/.idea/workspace.xml
+*.sln.iml
+/ExportedObj/
+.vsconfig
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Misc
+*.lock
+*.snapshot
+*.keystore
+*.jks
+
+# Generated files
+lib/api/data/*.g.dart
+lib/api/service/*.g.dart 
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+.metadata
+pubspec.lock
+
+
+# Generated files
+lib/api/data/*.g.dart
+lib/api/service/*.g.dart 
